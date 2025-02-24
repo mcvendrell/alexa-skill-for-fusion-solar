@@ -56,30 +56,6 @@ const LaunchRequestHandler = {
     }
 };
 
-const PowerIntentHandler = {
-    canHandle(handlerInput) {
-        return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
-            && Alexa.getIntentName(handlerInput.requestEnvelope) === 'PowerIntent';
-    },
-    async handle(handlerInput) {
-        try {
-            const response = await axios.get(`https://uni001eu5.fusionsolar.huawei.com/rest/pvms/web/kiosk/v1/station-kiosk-file?kk=${TOKEN}`);
-            // console.log('~~~~ Respuesta API:', unscape(response.data.data));
-            const data = JSON.parse(unscape(response.data.data));
-            const power = data.realKpi.realTimePower;
-            const speechText = `La potencia actual es de ${power}.`;
-            
-            return handlerInput.responseBuilder
-                .speak(speechText)
-                .getResponse();
-        } catch (error) {
-            return handlerInput.responseBuilder
-                .speak(`Lo siento, hubo algún error al leer los datos del inversor.`)
-                .getResponse();
-        }
-    }
-};
-
 const HelpIntentHandler = {
     canHandle(handlerInput) {
         return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
