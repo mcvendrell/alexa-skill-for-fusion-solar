@@ -1,0 +1,18 @@
+{
+  "name": "fusion-solar",
+  "version": "1.0.0",
+  "description": "Get current PV power in Huawei inverter",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Manuel Conde",
+  "license": "MIT",
+  "dependencies": {
+    "ask-sdk-core": "^2.7.0",
+    "ask-sdk-model": "^1.19.0",
+    "aws-sdk": "^2.326.0",
+    "axios": "^1.7.9",
+    "unescape": "^1.0.1"
+  }
+}
